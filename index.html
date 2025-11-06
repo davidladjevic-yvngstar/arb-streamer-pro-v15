@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Arb Streamer Pro v15 — GitHub Pages + Cloudflare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <div id="banner" class="banner">
+    <span id="bannerText">✅ Idle</span>
+    <div class="progress"><div id="bar" class="bar"></div></div>
+  </div>
+
+  <div class="toolbar">
+    <h1 style="margin-right:auto">Arb Streamer Pro v15</h1>
+    <span id="status" class="pill">Idle</span>
+    <label class="pill">Refresh (sec) <input id="refreshSec" type="number" min="5" value="10" style="width:80px;margin-left:8px"></label>
+    <label class="pill">Min title similarity <input id="minScore" type="number" min="50" max="100" value="80" style="width:80px;margin-left:8px"></label>
+    <label class="pill">Edge threshold (bps) <input id="edgeBps" type="number" min="0" value="120" style="width:80px;margin-left:8px"></label>
+    <button id="startBtn" class="primary">Start</button>
+    <button id="stopBtn">Stop</button>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2 class="h2-arb">🟢 Live Arbitrage</h2>
+      <div class="small" style="margin-bottom:6px">
+        Shows cross-venue edges where |p(Kalshi YES) − p(Polymarket YES)| exceeds threshold after simple fees.
+      </div>
+      <table>
+        <thead>
+          <tr><th>Time</th><th>Event</th><th>Kalshi YES</th><th>Polymarket YES</th><th>Edge (bps)</th></tr>
+        </thead>
+        <tbody id="arbRows"></tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h2 class="h2-raw">📘 Raw Markets</h2>
+      <div class="small">Latest counts — Kalshi: <span id="kalCount">0</span> | Polymarket: <span id="polyCount">0</span></div>
+      <table>
+        <thead>
+          <tr><th>Venue</th><th>Ticker/ID</th><th>Title</th><th>YES</th><th>NO</th></tr>
+        </thead>
+        <tbody id="rawRows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="errors" class="small" style="margin-top:10px"></div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
